@@ -1,18 +1,12 @@
 const Koa = require('koa')
 const app = new Koa()
-const Router = require('koa-router')
 const cors = require('koa2-cors')
 const bodyParser = require('koa-bodyparser')
-const fs = require('fs')
-let router = new Router()
+const router = require('./router/index')
 
 app.use(bodyParser())
 app.use(cors())
 
-router.post('/api/login', (ctx) => {
-  let loginData = fs.readFileSync('./static/login.json').toString()
-  ctx.body = loginData
-})
 
 app.use(router.routes())
 
