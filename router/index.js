@@ -7,4 +7,9 @@ router.post('/api/login', (ctx) => {
   ctx.body = loginData
 })
 
+router.get('/api/vue-ts/menu', (ctx) => {
+  let menuData = fs.readFileSync('./static/vue-ts/menu.json').toString()
+  ctx.body = menuData
+})
+
 module.exports = router
